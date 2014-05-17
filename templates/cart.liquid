@@ -1,0 +1,75 @@
+<!-- Cart.liquid v0.1 -->
+<div class="leftcol box span3">
+    <hr>
+	<h3>
+	    <div class="sticker"><div class="text">Cart</div></div>
+	</h3>
+</div>
+
+<div class="centercol box span6">
+    <hr />  
+    
+    {% if cart.item_count == 0 %}
+        <!-- If the customer has nothing in their cart do this -->
+        You have nothing in your cart.
+    {% else %}
+        <!-- If the customer does have something their cart do this 
+            So far the cart is really basic. Remove is not yet working. Will need to add that functionality in with javascript. -->
+        <script type="text/javascript">
+            function remove_item(id) {
+                document.getElementById('updates_'+id).value = 0;
+                document.getElementById('cartform').submit();
+            }
+            
+            function submit_cartForm() {
+                document.getElementById('cartform').submit();
+            }
+        </script>
+
+        <form action="/cart" method="post" id="cartform">
+        <table class="span6">
+            <thead> 
+			    <tr>
+					<th>Item</th>
+                    <th>Description</th>
+					<th>Qty</th>
+					<th>Price</th>
+					<th class="no-border"></th>
+				</tr>
+			</thead>
+            <tbody>
+                {% for item in cart.items %}
+                    <tr>
+    		    		<td><img src="{{ item.product.images.first | product_img_url: 'thumb' }}" alt="{{ item.title | escape }}" /></td>
+						<td class="product-title"><a href="{{ item.product.url }}">{{ item.title }}</a></td>
+						<td><input type="text" size="4" name="updates[{{item.variant.id}}]" id="updates_{{ item.variant.id }}" value="{{ item.quantity }}" onfocus="this.select();"/></td>
+						<td class="price">{{ item.price | money }}</td>
+						<th class="cart-item-delete no-border"><a href="#" onclick="remove_item({{ item.variant.id }}); return false;">✕</a></th>
+					</tr>
+                {% endfor %}
+            </tbody>
+        	<tfoot>
+		    	<td colspan="2" class="note">Applicable taxes, shipping, store credit, and promotional codes will be added on subsequent pages</td>
+				<td>&nbsp;</td>
+				<td class="price total">{{ cart.total_price | money }}</td>
+				<td class="no-border"></td>
+			</tfoot>
+        </table>
+        
+    {% endif %}
+</div>
+
+<div class="rightcol box span3" role="complementary">
+    <hr />
+    <section class="checkout-buttons">
+        <ul class="nav nav-list">
+	    	<li><a href="#" class="checkout" onclick="submit_cartForm();return false;">Checkout</a></li>
+			<li><a href="#" class="update" onclick="submit_cartForm();return false;">Update Cart</a></li>
+			<li><a href="/collections/all" class="shopping">Continue Shopping</a></li>
+		</ul>
+        
+        <input type="submit" id="update-cart" name="update" value="Update" />
+        <input type="submit" name="checkout" value="Checkout" />
+    </section>
+</div>
+</form>
