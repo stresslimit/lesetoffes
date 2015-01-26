@@ -15,6 +15,7 @@ nav a {
   font-weight: bold;
 }
 
+
 /*
   main menu */
 .header nav {
@@ -23,6 +24,17 @@ nav a {
 .main-menu a {
   margin-right: 3em;
 }
+
+
+/*
+social footer */
+.social-links a {
+  margin-right: 0.5em;
+}
+.social-links img {
+  width: 2em;
+}
+
 
 /*
   cart/bag */
