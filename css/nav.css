@@ -1,0 +1,37 @@
+
+/*
+  all */
+nav {
+  font-size: 0.9em;
+  margin: 0.5em 0;
+}
+nav a {
+  color: var(--black);
+  display: inline-block;
+  margin-right: 2em;
+  line-height: 2em;
+}
+.active {
+  font-weight: bold;
+}
+
+/*
+  main menu */
+.header nav {
+  margin-bottom: 0;
+}
+.main-menu a {
+  margin-right: 3em;
+}
+
+/*
+  cart/bag */
+.your-bag {
+  color: var(--black);
+}
+#bag-svg {
+  display: inline-block;
+  width: 1.5em;
+  position: relative;
+  top: -5px;
+}

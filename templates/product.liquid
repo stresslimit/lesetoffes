@@ -1,57 +1,41 @@
-<div class="leftcol box span3">
-    <hr />
-</div>
 
-<div class="centercol box span6">
-    <hr />  
+<div class="row">
+
+  <div class="col-sm-6">
+    <div class="hidden-sm hidden-md hidden-lg">
+      {% include 'product-title' %}
+    </div>
+
     {% for image in product.images %}
-        <div class="product-images">
-            <a href="{{ image | product_img_url: 'original' }}"  title="{{ product.title }}"><img src="{{ image | product_img_url: 'grande' }}" alt="{{ product.title | escape }}" /></a>
-        </div>
+      <div class="product-images">
+        <img src="{{ image | product_img_url: 'grande' }}" alt="{{ product.title | escape }}" class="img-responsive">
+      </div>
     {% endfor %}
+  </div>
+
+  <div class="col-sm-6 col-md-5 col-lg-4 sticky">
+
+    <div class="hidden-xs">
+      {% include 'product-title' %}
+    </div>
+
+    {% include 'add-to-cart' %}
+
+    {% assign c = product.description | split: '__' %}
+
+    <div class="description">
+      {{ c[0] }}
+      {% if c[1] %}</p>{% endif %}
+    </div>
+
+    {% if c[1] %}
+    <div class="details-toggler">
+      <a href="#">Details +</a>
+    <div class="details hidden"><p>{{ c[1] }}</div>
+    </div>
+    {% endif %}
+
+
+  </div>
+
 </div>
-
-<div class="rightcol box span3" role="complementary">
-    <hr />
-    <section class="product-details">
-        <h2 class="product-vendor">{{ product.vendor }}</h2>
-        <h1 class="product-title">{{ product.title }}</h1>
-        <p class="price">{{ product.price | money }}</p>
-        <p class="description">{{ product.description }}</p>
-        
-        {% if product.available %}
-            <script type="text/javascript">
-                function submit_addForm() {
-                    document.getElementById('add-product-form').submit();
-                }
-            </script>
-            <form id="add-product-form" action="/cart/add" method="post">
-                <div id="product-variants">
-                    <select id="product-select" name='id'>
-                        {% for variant in product.variants %}
-                        <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
-                        {% endfor %}
-                    </select>
-                </div><!-- product-variants -->
-                <a href="#" onclick="submit_addForm();return false;"><div class="sticker mini"><div class="text">Add to cart</div></div></a>
-            </form>
-        {% else %}
-            Sorry, the product is not available
-        {% endif %}
-    </section>
-    
-    <hr>
-    <section class="related-products">
-        <div id="product-alternative">
-            <h3>Like what you see?</h3>
-            Browse more {{ 'products like this' | link_to_type }} or more products by {{ product.vendor | link_to_vendor }}.
-        </div><!-- product alternative -->
-    </section>
-
-    
-</div>
-
-	
-
-
-

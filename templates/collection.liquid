@@ -1,76 +1,8 @@
 
-<div class="leftcol box span3">
-    <hr />
-	
-	<ul>
-		<li{% unless current_tags %} class="active"{% endunless %}>
-		    {% if collection.all_products_count > 0 %}
-		    <a href="/collections/{{ collection.handle }}">All / Tous</a>
-		    {% endif %}
-		  </li>
-	{% for tag in collection.all_tags %}
-	
-		<!-- escape tags which are for main menu -->
-		{% assign good = true %}
-		{% for link in linklists.submenu.links %}
-			{% if link.title == tag %}
-				{% assign good = false %}
-			{% endif %}
-		{% endfor %}
-		
-		<!-- show the tags -->
-		{% if good %}
-			{% if current_tags contains tag %}
-			<li class="active">
-			{{ tag | link_to_remove_tag: tag }}
-			</li>
-			{% else %}
-			<li>
-			{{ tag | link_to_tag: tag }}
-			</li>
-			{% endif %}
-		{% endif %}
-	{% endfor %}  
-	</ul>
-	
-</div>
+<div class="row">
 
-<div class="centercol box span6">
-    <hr />
+  {% for product in collection.products %}
+    {% include 'product-card' %}
+  {% endfor %}
 
-    <!-- Every 12 products in the collection, paginate -->
-    {% paginate collection.products by 12 %}
-
-    <!-- Handle the case if there are no products -->
-    {% if collection.products.size == 0 %}
-        <strong>No products found in this collection.</strong>
-    {% else %}
-
-        <div class="row">
-            {% for product in collection.products %}
-  	            <article class="product span2">
-    			    <a href="{{ product.url | within: collection }}" title="{{ product.title }}">
-                        <img src="{{ product.featured_image | product_img_url: 'medium' }}"
-           	alt="{{ product.title }}" />{{ rowIndex }}
-                    </a>
-				</article>
-                {% cycle '', '', '</div><div class="row">' %}
-            {% endfor %}
-		</div>
-        
-        <!-- If there is more than 1 page, show the pagination links -->
-        {% if paginate.pages > 1 %}
-            <div id="paginate">
-                {{ paginate | default_pagination }}
-            </div>
-        {% endif %}
-
-    <!-- The end of the no products / products if statement -->
-    {% endif %}
-    {% endpaginate %}
-</div>
-
-<div class="rightcol box span3" role="complementary">
-    <hr />
-    &nbsp;
 </div>

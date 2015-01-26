@@ -1,0 +1,6 @@
+<h1 class="product-vendor">{{ product.vendor }}</h1>
+<h3 class="product-title">{{ product.title }}</h3>
+<p class="price">
+  – {% unless product.variants.size == 1 %}from {% endunless %}
+  {{ product.price | money }}
+</p>

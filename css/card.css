@@ -1,0 +1,23 @@
+
+.card {
+  margin-bottom: 1em;
+}
+
+
+.product-vendor {
+  font-weight: bold;
+}
+.product-vendor, .product-title {
+  margin:0;
+}
+
+
+.product-card a {
+  color: var(--black);
+  display: block;
+  border-bottom: 1px solid #fff;
+}
+.product-card a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid var(--grey);
+}

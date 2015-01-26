@@ -1,119 +1,50 @@
 <!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
-    {{ content_for_header }}
-    <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-	<title>{{ shop.name }} - {{ page_title }}</title>
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<link rel="Shortcut icon" href="{{ 'favicon.ico' | asset_url }}">
-	
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-    
-    {{ 'bootstrap.css'  | asset_url | stylesheet_tag }}
-    {{ 'app.css'  | asset_url | stylesheet_tag }}
-    {{ 'modernizr-2.0.6.min.js' | asset_url | script_tag }}
-    
+  <title>{{ page_title }} - {{ shop.name }}</title>
+  <link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}">
+
+  {{ content_for_header }}
+
+  {{ 'build.css'  | asset_url | stylesheet_tag }}
+
+  {{ 'sticky.js' | asset_url | script_tag }}
+  {{ 'build.js' | asset_url | script_tag }}
+
 </head>
-
 <body>
-<div id="container" class="container" role="banner">
-    <header>
-		<div class="row">
-			<div class="leftcol box span3">
-				<!-- small top menu -->
-				<nav>
-					<ul class="nav nav-list">
-          	{% for link in linklists.main-menu.links %}
-			        <li><a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
-			      {% endfor %}
-					</ul>
-				</nav>
-			</div>
-			<div class="centercol box span6">
-				<div id="logo">
-					<a href="/">
-					    {{ 'logo_etoffes.png' | asset_url | img_tag: shop.name }}
-					</a>
-				</div>
-				<div class="menu">
-					<!-- main menu -->
-					<ul class="nav nav-pills">
-						{% for link in linklists.submenu.links %}
-    		   		<li><a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
-			      {% endfor %}
-					</ul>
-				</div>
-			</div>
-			<div class="rightcol box span3">
-				<section id="cart">
-                    {% if cart.item_count == 0 %}
-					    <p>Your cart is currently empty</p>
-				    {% else %}
-                        <p>{{ cart.item_count | pluralize: 'Item', 'Items' }} in Cart</p>
-					    <p class="nb-cart-items"><a href="/cart"><strong>{{ cart.item_count }}</strong></a></p>
-				    {% endif %}		
+<div id="cart_container"></div>
 
-				</section>
-			</div>
-		</div>
-	</header>
-    
-    <div id="main" role="main" class="{{ template | replace: '.', ' ' | truncatewords: 1, '' }}">
-		<div class="row">
-			{{ content_for_layout }}
-		</div>
-	</div>
-    
-    <footer role="contentinfo">
-    	<div class="row">
-			<div class="centercol box span6 offset3">
-				<hr />
-				<nav>
-					<ul class="nav nav-pills">
-                        {% for link in linklists.footer.links %}
-    		                <li><a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a></li>
-			            {% endfor %}
-					</ul>
-				</nav>
+<div class="container header">
 
-				<address>
-					<div class="vcard">
-						<div class="org hidden">Les Étoffes</div>
-						<div class="adr">
-							<div class="street-address">5253, boulevard Saint-Laurent</div>
-							<span class="locality">Montréal</span> (<span class="region">QC</span>)
-							<span class="postal-code">H2T 1S4</span>
-							<span class="country-name hidden">Canada</span>
-						</div>
-						<div class="tel">514 544-5500</div>
-						<a class="email" href="mailto:info@lesetoffes.com">info@lesetoffes.com</a>
-					</div>
-				</address>
-			</div>
-		</div>
-	</footer>
+  <a href="/" id="logo">
+    {{ 'logo.svg' | asset_url | img_tag: shop.name }}
+  </a>
+  {% include 'main-menu' %}
+  {% include 'search-form' %}
 
-</div> <!--! end of #container -->
+</div>
 
-{{ '//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' | script_tag }}
 
-<script>
-	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
-	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-	s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
+{% if template == 'index' %}
+  {% include 'banner' %}
+{% else %}
+  <hr>
+  {% include 'sub-menu' %}
+{% endif %}
 
-<!--[if lt IE 7 ]>
-	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-<![endif]-->
+
+<div class="container main-content {{ template | replace: '.', ' ' | truncatewords: 1, '' }}">
+	{{ content_for_layout }}
+</div>
+
+
+{% include 'footer' %}
+{% include 'footer-scripts' %}
 
 </body>
 </html>

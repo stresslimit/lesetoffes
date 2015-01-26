@@ -1,0 +1,45 @@
+
+{% if template contains 'collection' or template == 'product' %}
+
+  {% if collection.handle == 'women' or product.tags contains 'Women' %}
+    {% assign l = linklists.women.links %}
+  {% elsif collection.handle == 'men' or product.tags contains 'Men' %}
+    {% assign l = linklists.men.links %}
+  {% endif %}
+
+  <nav class="container sub-menu">
+    {% for link in l %}
+      <a href="{{ link.url }}"{% if link.active or product.tags contains link.title %} class="active"{% endif %}>{{ link.title }}</a>
+    {% endfor %}
+  </nav>
+
+<hr>
+
+{% comment %}
+{% assign types = '' %}
+{% for product in collection.products %}
+  {% assign types = types | append: ' ' | append: product.type %}
+  {% endfor %}
+{% assign types = types | split: ' ' | uniq | sort %}
+
+{% if types.size > 0 %}
+  <nav class="container sub-menu">
+    {% for t in types %}
+      <a href="{{ collection.url }}/{{ t }}">{{ t }}</a>
+    {% endfor %}
+  </nav>
+  <hr>
+{% endif %}
+
+OR
+
+<nav class="container sub-menu">
+  {% for product_type in collection.all_types %}
+    <!-- <a href="{{ collection.url }}?type={{ product_type }}">{{ product_type }}</a> -->
+  {{ product_type | link_to_type }}
+  {% endfor %}
+</nav>
+<hr>
+{% endcomment %}
+
+{% endif %}

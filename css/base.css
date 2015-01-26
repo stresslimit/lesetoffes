@@ -1,0 +1,100 @@
+/*
+@media (min-width:768px) {
+}
+@media (min-width:992px) {
+}
+@media (min-width:1200px) {
+}
+*/
+
+/*
+  colours */
+:root {
+  --primary-colour: #1439A9;
+  --grey: #a1a1a1;
+  --black: #333;
+  --gold: #aa934d;
+  --tope: #99594a;
+}
+
+
+/*
+  typography & the basics */
+body { background:#fff; font-size:16px; font-family: Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif; line-height:1.4; color:#333; }
+@media (min-width:992px) { body { font-size:17px; } }
+@media (min-width:1200px) { body { font-size:18px; } }
+
+h1, .h1 { font-size: 2.5em; }
+h2, .h2 { font-size: 2.0em; }
+h3, .h3 { font-size: 1.5em; }
+h4, .h4 { font-size: 1.2em; }
+h5, h6, p { font-size: 1em; }
+
+@media screen and (max-width:520px) {
+  h1, .h1 { font-size: 2.5em; }
+  h2, .h2 { font-size: 2em; }
+  h3, .h3 { font-size: 1.3em; }
+  h4, .h4 { font-size: 1em; }
+}
+
+a, a:hover {
+  color: var(--primary-colour);
+}
+
+.body-text a {
+  font-weight: bold;
+}
+
+.title-primary {
+  font-weight: bold;
+}
+
+hr {
+  border-top-color: #a1a1a1;
+  margin: 0.5em;
+}
+hr.double {
+  margin: 3em;
+}
+
+input[type=number] {
+  width: 3em;
+}
+
+/*
+  buttons */
+.btn {
+  border: 1px var(--primary-colour) solid;
+  border-radius: 0;
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1em;
+}
+.btn-primary, .btn-secondary:hover {
+  background: var(--primary-colour);
+  color: #fff;
+}
+.btn-primary:hover, .btn-secondary {
+  background: #fff;
+  color: var(--primary-colour);
+}
+
+
+/*
+  utility */
+
+.sticky {
+  position: sticky;
+  top: 1em;
+}
+.sticky:before,
+.sticky:after {
+  content: '';
+  display: table;
+}
+
+.clearfix:before, .clearfix:after, .cf:before, .cf:after { content:"\0020"; display:block; height:0; visibility:hidden; }
+.clearfix:after, .cf:after { clear:both; }
+.clearfix, .cf { min-height:0; }
+.clear { clear:both; }

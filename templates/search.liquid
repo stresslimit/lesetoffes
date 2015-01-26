@@ -1,2 +1,15 @@
-<!-- Search.liquid v0.1 -->
-To be completed
+<h1>Searching for “{{ search.terms }}”</h1>
+
+{% if search.results_count > 0 %}
+
+  {% for product in search.results %}
+    {% if product.available %}
+      {% include 'product-card' %}
+    {% endif %}
+  {% endfor %}
+
+{% else %}
+
+  <h3>Sorry, no love this time</h3>
+
+{% endif %}

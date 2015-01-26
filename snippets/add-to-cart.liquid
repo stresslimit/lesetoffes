@@ -1,0 +1,30 @@
+{% assign add_cart_text = 'Add to cart' %}
+
+
+{% if product.available %}
+
+<form action="/cart/add" method="post" class="add-to-cart clearfix">
+
+  {% if product.variants.size == 1 %}
+  <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+
+  {% else %}
+
+  <p><select name="id" class="product-select">
+    {% for variant in product.variants %}
+    <option value="{{ variant.id }}"{% if variant.inventory_quantity <1 %} disabled{% endif %}>{{ variant.title | escape }} - {% if variant.inventory_quantity < 1 %}Sold out{% else %}{{ variant.price | money | amount_no_decimals }}{% endif %}</option>
+    {% endfor %}
+  </select></p>
+
+  {% endif %}
+
+  <p><button class="btn btn-primary">{{ add_cart_text }}</button></p>
+
+</form>
+
+
+{% else %}
+
+  <p><button class="btn btn-secondary" disabled>Sold Out</button></p>
+
+{% endif %}

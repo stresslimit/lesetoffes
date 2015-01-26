@@ -1,0 +1,58 @@
+/*
+React cart component
+*/
+.cart {
+  position: fixed;
+  z-index: 7;
+  right: 0;
+  width: 400px;
+  height: 100%;
+  overflow-y: auto;
+  background: #ebebeb;
+  padding: 1em;
+  border: 1px solid var(--primary-colour);
+}
+@media (min-width:992px) { .cart { font-size:0.9em; } }
+@media (min-width:1200px) { .cart { font-size:0.8em; } }
+@media (max-width:768px) {
+  .cart {
+    width: 100%;
+  }
+  body.cart-open {
+    overflow:hidden;
+  }
+}
+
+.cart-close {
+  border: 0;
+  float: left;
+  font-size: 1.5em;
+}
+.cart-title {
+  padding: 1.5em 0 1em;
+}
+.cart-item {
+  padding-bottom: 1em;
+  border-bottom: 1px dashed grey;
+  margin-bottom: 1em;
+}
+.cart-item-thumb {
+  float: left;
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+}
+.cart-item-desc {
+  margin-left: 110px;
+}
+.cart-item-line-price, .cart-total {
+  float: right;
+}
+.cart-total {
+  margin:0;
+  padding: 0.5em 1em;
+}
+.cart-checkout-actions {
+  display: flex;
+  justify-content: space-around;
+}

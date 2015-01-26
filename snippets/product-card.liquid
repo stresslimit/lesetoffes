@@ -1,0 +1,11 @@
+<div class="card product-card col-sm-6 col-sm-4">
+  <a href="{{ product.url | within: collection }}" title="{{ product.title }}">
+
+    <p><img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ product.title }}" class="img-responsive"></p>
+
+    <h4 class="product-vendor">{{ product.vendor }}</h4>
+    <h5 class="product-title">{{ product.title }}</h5>
+    <p>– {{ product.price | money }}</p>
+
+  </a>
+</div>

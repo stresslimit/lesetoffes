@@ -1,15 +1,33 @@
 {% assign page = pages.frontpage %}
 
-<div class="leftcol box span3">
-    <hr />
+<h2>Latest</h2>
+
+
+<div class="row">
+  {% for product in collections['new'].products limit:3 %}
+    {% include 'product-card' %}
+  {% endfor %}
 </div>
 
-<div class="centercol box span6">
-	<hr />		
-  {{page.content}}
+<br>
+<div class="row body-text">
+  <div class="col-sm-4 col-sm-offset-2 col-md-3 col-md-offset-3">
+    <a href="/collections/women" class="btn btn-primary">Shop Women</a>
+  </div>
+  <div class="col-sm-4 col-md-3">
+    <a href="/collections/men" class="btn btn-primary">Shop Men</a>
+  </div>
 </div>
 
-<div class="rightcol box span3" role="complementary">
-	<hr />
-	&nbsp;
+
+
+
+</div>
+<hr class="double">
+<div class="container">
+
+<div class="row body-text">
+  <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+    {{ page.content }}
+  </div>
 </div>
