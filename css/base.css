@@ -38,10 +38,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-size: 1em; }
 .title-md {
   font-size: 1.4em;
 }
-.title-sm {
+.title-sm, .body-text h3 {
   font-size: 1.2em;
 }
-.title-uc {
+.title-uc, .body-text h3 {
   font-weight: bold;
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;

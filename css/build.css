@@ -3723,11 +3723,13 @@ h6,
   font-size: 1.4em;
 }
 
-.title-sm {
+.title-sm,
+.body-text h3 {
   font-size: 1.2em;
 }
 
-.title-uc {
+.title-uc,
+.body-text h3 {
   font-weight: bold;
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;
@@ -4092,6 +4094,11 @@ React cart component
   padding-bottom: 1em;
   border-bottom: 1px dashed grey;
   margin-bottom: 1em;
+}
+
+.cart-item-delete {
+  float: right;
+  cursor: pointer;
 }
 
 .cart-item-thumb {

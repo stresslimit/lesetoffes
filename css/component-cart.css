@@ -36,6 +36,10 @@ React cart component
   border-bottom: 1px dashed grey;
   margin-bottom: 1em;
 }
+.cart-item-delete {
+  float: right;
+  cursor: pointer;
+}
 .cart-item-thumb {
   float: left;
   background-size: cover;
