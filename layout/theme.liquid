@@ -39,7 +39,7 @@
 {% endif %}
 
 
-<div class="main-content {{ template | replace: '.', ' ' | truncatewords: 1, '' }}">
+<div class="main-content {{ template | replace: '.', '-' | prepend: 'template-' }}">
 	{{ content_for_layout }}
 </div>
 

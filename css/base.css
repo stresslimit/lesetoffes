@@ -55,46 +55,13 @@ a, a:hover {
   font-weight: bold;
 }
 
-.title-primary {
-  font-weight: bold;
-}
-
 hr {
   border-top-color: #a1a1a1;
   margin: 0.5em;
 }
-hr.double {
-  margin: 3em;
-}
 
 input[type=number] {
   width: 3em;
-}
-
-
-/*
-  buttons */
-.btn {
-  border: 1px var(--primary-colour) solid;
-  border-radius: 0;
-  display: block;
-  width: 100%;
-  font-weight: bold;
-  font-family: 'Roboto Condensed', sans-serif;
-  text-transform: uppercase;
-  font-size: 1em;
-}
-.btn-primary, .btn-secondary:hover, .btn-secondary.active {
-  background: var(--primary-colour);
-  color: #fff;
-}
-.btn-primary:hover, .btn-secondary {
-  background: #fff;
-  color: var(--primary-colour);
-}
-.btn-inline {
-  display: inline-block;
-  width: auto;
 }
 
 

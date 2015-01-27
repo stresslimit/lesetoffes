@@ -10,74 +10,23 @@
 
   {% else %}
 
-  <p>
-    <label>Select Size:</label>
-    <span id="size-select">
-      <select name="id" class="size-select">
-        {% for variant in product.variants %}
-        <option
-          value="{{ variant.id }}"
-          data-desc="{{ variant.title | escape }}"
-          data-available="{{ variant.inventory_quantity > 0 }}"
-          {% if variant.inventory_quantity < 1 %} disabled{% endif %}
-        >
-          {{ variant.title | escape }}{% if variant.inventory_quantity < 1 %} — Sold out{% endif %}
-        </option>
-        {% endfor %}
-      </select>
-    </span>
-  </p>
-
-  <script>
-  var s = document.getElementById('size-select')
-  var oo = s.querySelectorAll('option')
-  // s.style.display = 'none'
-  var options_data = []
-  for (var i = 0; i < oo.length; ++i) {
-    var d = {
-      id: parseInt(oo[i].value),
-      desc: oo[i].getAttribute('data-desc'),
-      available: oo[i].getAttribute('data-available')
-    }
-    options_data.push( d )
-  }
-  console.log(options_data)
-
-  // var sizes = require('./component-sizes')
-  var sizes = React.createClass({
-    getInitialState: function () {
-      return {
-        selected_id: null
-      }
-    },
-    render: function () {
-      var sl = this.state.selected_id
-      console.log(sl)
-      var tt = this // not sure this is a good idea, but it works
-      return React.DOM.div({ className: 'sizes' },
-        React.DOM.input({ type: 'hidden', name: 'id', value: sl }),
-        this.props.data.map(function ( size ) {
-          return React.DOM.a({
-            onClick: function () {
-              // console.log(size.available, size.id )
-              if ( size.available == 0 ) return
-              tt.setState({ selected_id: size.id })
-            },
-            className: 'btn btn-secondary btn-inline '
-                      + ( size.available > 0 ? 'available' : 'out-of-stock' )
-                      +' '+ ( size.id === sl ? 'active' : '' )
-          },
-          size.desc
-          )
-        })
-      )
-    }
-  })
-
-  sizes = React.createFactory( sizes )
-  React.render( sizes({ data: options_data }), s )
-
-  </script>
+    <p>
+      <label>Select Size:</label>
+      <span id="size-select">
+        <select name="id" class="size-select">
+          {% for variant in product.variants %}
+          <option
+            value="{{ variant.id }}"
+            data-desc="{{ variant.title | escape }}"
+            data-available="{{ variant.inventory_quantity > 0 }}"
+            {% if variant.inventory_quantity < 1 %} disabled{% endif %}
+          >
+            {{ variant.title | escape }}{% if variant.inventory_quantity < 1 %} — Sold out{% endif %}
+          </option>
+          {% endfor %}
+        </select>
+      </span>
+    </p>
 
   {% endif %}
 

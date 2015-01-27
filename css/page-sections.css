@@ -50,10 +50,10 @@
   line-height: 40px;
   background: var(--highlight-colour);
 }
-.main-content.index .highlight-spacer, .main-content.index .highlight-title {
+.template-index .highlight-spacer, .template-index .highlight-title {
   background: var(--black);
 }
-.main-content.index .highlight-title h1 {
+.template-index .highlight-title h1 {
   color: #fff;
 }
 .highlight-title, .highlight-title h1 {
