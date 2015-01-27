@@ -1,10 +1,11 @@
-<div class="card product-card col-sm-6 col-sm-4">
+
+<div class="card product-card col-sm-6 col-md-4 col-lg-3">
   <a href="{{ product.url | within: collection }}" title="{{ product.title }}">
 
     <p><img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ product.title }}" class="img-responsive"></p>
 
-    <h4 class="product-vendor">{{ product.vendor }}</h4>
-    <h5 class="product-title">{{ product.title }}</h5>
+    <h3 class="title-uc product-vendor">{{ product.vendor }}</h3>
+    <h2 class="product-title">{{ product.title }}</h2>
     <p>– {{ product.price | money }}</p>
 
   </a>

@@ -4,13 +4,9 @@
 }
 
 
-.product-vendor {
-  font-weight: bold;
-}
 .product-vendor, .product-title {
   margin:0;
 }
-
 
 .product-card a {
   color: var(--black);

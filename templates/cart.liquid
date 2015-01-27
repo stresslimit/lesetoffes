@@ -1,34 +1,25 @@
-<!-- Cart.liquid v0.1 -->
-<div class="leftcol box span3">
-    <hr>
-	<h3>
-	    <div class="sticker"><div class="text">Cart</div></div>
-	</h3>
-</div>
+<div class="container">
 
-<div class="centercol box span6">
-    <hr />  
-    
     {% if cart.item_count == 0 %}
         <!-- If the customer has nothing in their cart do this -->
         You have nothing in your cart.
     {% else %}
-        <!-- If the customer does have something their cart do this 
+        <!-- If the customer does have something their cart do this
             So far the cart is really basic. Remove is not yet working. Will need to add that functionality in with javascript. -->
-        <script type="text/javascript">
+          <form action="/cart" method="post" id="cartform">
+            <script type="text/javascript">
             function remove_item(id) {
                 document.getElementById('updates_'+id).value = 0;
                 document.getElementById('cartform').submit();
             }
-            
+
             function submit_cartForm() {
                 document.getElementById('cartform').submit();
             }
         </script>
 
-        <form action="/cart" method="post" id="cartform">
         <table class="span6">
-            <thead> 
+            <thead>
 			    <tr>
 					<th>Item</th>
                     <th>Description</th>
@@ -55,21 +46,18 @@
 				<td class="no-border"></td>
 			</tfoot>
         </table>
-        
     {% endif %}
-</div>
 
-<div class="rightcol box span3" role="complementary">
-    <hr />
-    <section class="checkout-buttons">
-        <ul class="nav nav-list">
-	    	<li><a href="#" class="checkout" onclick="submit_cartForm();return false;">Checkout</a></li>
+  <hr>
+    <ul class="nav nav-list">
+    	<li><a href="#" class="checkout" onclick="submit_cartForm();return false;">Checkout</a></li>
 			<li><a href="#" class="update" onclick="submit_cartForm();return false;">Update Cart</a></li>
 			<li><a href="/collections/all" class="shopping">Continue Shopping</a></li>
 		</ul>
-        
-        <input type="submit" id="update-cart" name="update" value="Update" />
-        <input type="submit" name="checkout" value="Checkout" />
-    </section>
+
+    <input type="submit" id="update-cart" name="update" value="Update" />
+    <input type="submit" name="checkout" value="Checkout" />
+
+  </form>
+
 </div>
-</form>

@@ -1,8 +1,27 @@
 
-<div class="row">
 
-  {% for product in collection.products %}
-    {% include 'product-card' %}
+{% if current_tags %}
+  {% assign highlight_title = current_tags %}
+  {% for vendor in shop.vendors %}
+    {% assign vendor_handle = vendor | handle %}
+    {% if vendor_handle == collection.handle %}
+      {% assign highlight_title = collection.title %}
+    {% endif %}
   {% endfor %}
+{% elsif collection.handle == 'men' or collection.handle == 'women' %}
+  {% assign highlight_title = collection.title %}
+{% endif %}
+{% include 'highlight-title' %}
+
+
+<div class="container">
+
+  <div class="row">
+
+    {% for product in collection.products %}
+      {% include 'product-card' %}
+    {% endfor %}
+
+  </div>
 
 </div>

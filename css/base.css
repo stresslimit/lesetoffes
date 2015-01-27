@@ -11,6 +11,7 @@
   colours */
 :root {
   --primary-colour: #1439A9;
+  --highlight-colour: #f9ec19;
   --grey: #a1a1a1;
   --black: #333;
   --gold: #aa934d;
@@ -20,21 +21,30 @@
 
 /*
   typography & the basics */
-body { background:#fff; font-size:16px; font-family: Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif; line-height:1.4; color:#333; }
-@media (min-width:992px) { body { font-size:17px; } }
-@media (min-width:1200px) { body { font-size:18px; } }
+body {
+  background:#fff;
+  font-size:16px;
+  font-family: Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  line-height:1.4;
+  color:#333;
+}
+/*@media (min-width:992px) { body { font-size:17px; } }
+@media (min-width:1200px) { body { font-size:18px; } }*/
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-size: 1em; }
 
-h1, .h1 { font-size: 2.5em; }
-h2, .h2 { font-size: 2.0em; }
-h3, .h3 { font-size: 1.5em; }
-h4, .h4 { font-size: 1.2em; }
-h5, h6, p { font-size: 1em; }
-
-@media screen and (max-width:520px) {
-  h1, .h1 { font-size: 2.5em; }
-  h2, .h2 { font-size: 2em; }
-  h3, .h3 { font-size: 1.3em; }
-  h4, .h4 { font-size: 1em; }
+.title-lg {
+  font-size: 1.6em;
+}
+.title-md {
+  font-size: 1.4em;
+}
+.title-sm {
+  font-size: 1.2em;
+}
+.title-uc {
+  font-weight: bold;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
 }
 
 a, a:hover {
@@ -61,6 +71,7 @@ input[type=number] {
   width: 3em;
 }
 
+
 /*
   buttons */
 .btn {
@@ -69,9 +80,11 @@ input[type=number] {
   display: block;
   width: 100%;
   font-weight: bold;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
   font-size: 1em;
 }
-.btn-primary, .btn-secondary:hover {
+.btn-primary, .btn-secondary:hover, .btn-secondary.active {
   background: var(--primary-colour);
   color: #fff;
 }
@@ -79,11 +92,14 @@ input[type=number] {
   background: #fff;
   color: var(--primary-colour);
 }
+.btn-inline {
+  display: inline-block;
+  width: auto;
+}
 
 
 /*
   utility */
-
 .sticky {
   position: sticky;
   top: 1em;

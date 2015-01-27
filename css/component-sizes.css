@@ -1,0 +1,15 @@
+.sizes {
+
+}
+.sizes .out-of-stock {
+  color: var(--grey);
+  border-color: var(--grey);
+  cursor: default;
+}
+.sizes .out-of-stock:hover {
+  background: #fff;
+}
+.sizes .btn {
+  margin: 0 0.5em 0.5em 0;
+  font-size: 0.8em;
+}

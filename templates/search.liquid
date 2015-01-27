@@ -1,15 +1,20 @@
-<h1>Searching for “{{ search.terms }}”</h1>
 
-{% if search.results_count > 0 %}
+<div class="container">
 
-  {% for product in search.results %}
-    {% if product.available %}
-      {% include 'product-card' %}
-    {% endif %}
-  {% endfor %}
+  <h1>Searching for “{{ search.terms }}”</h1>
 
-{% else %}
+  {% if search.results_count > 0 %}
 
-  <h3>Sorry, no love this time</h3>
+    {% for product in search.results %}
+      {% if product.available %}
+        {% include 'product-card' %}
+      {% endif %}
+    {% endfor %}
 
-{% endif %}
+  {% else %}
+
+    <h3>Sorry love, no luck this time</h3>
+
+  {% endif %}
+
+</div>

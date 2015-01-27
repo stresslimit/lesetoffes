@@ -1,6 +1,9 @@
 
-/*
-layout */
+.section {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
 .main-content {
   margin-top: 2em;
 }
@@ -17,5 +20,49 @@ layout */
 .ribbon-text {
   background: var(--gold);
   text-align: center;
-  padding: 0.5em;
+  padding: 1em;
+}
+.ribbon-text h1 {
+  margin: 0;
+}
+
+
+.highlight-block {
+  margin-bottom: 2em;
+}
+.highlight-spacer, .highlight-spacer-after {
+  display: none;
+}
+@media (min-width:768px) {
+  .highlight-block {
+    display: flex;
+  }
+  .highlight-spacer, .highlight-spacer-after {
+    display: block;
+    flex-grow: 1;
+  }
+}
+.highlight-block .container {
+  padding: 0;
+}
+.highlight-spacer, .highlight-title {
+  height: 40px;
+  line-height: 40px;
+  background: var(--highlight-colour);
+}
+.main-content.index .highlight-spacer, .main-content.index .highlight-title {
+  background: var(--black);
+}
+.main-content.index .highlight-title h1 {
+  color: #fff;
+}
+.highlight-title, .highlight-title h1 {
+  line-height: 40px;
+  margin: 0;
+  display: inline-block;
+}
+.highlight-title h1 {
+  font-weight: normal;
+  padding-left: 15px;
+  padding-right: 1em;
 }

@@ -1,33 +1,35 @@
 {% assign page = pages.frontpage %}
 
-<h2>Latest</h2>
+{% assign highlight_title = 'Latest' %}
+{% include 'highlight-title' %}
 
-
-<div class="row">
-  {% for product in collections['new'].products limit:3 %}
-    {% include 'product-card' %}
-  {% endfor %}
-</div>
-
-<br>
-<div class="row body-text">
-  <div class="col-sm-4 col-sm-offset-2 col-md-3 col-md-offset-3">
-    <a href="/collections/women" class="btn btn-primary">Shop Women</a>
-  </div>
-  <div class="col-sm-4 col-md-3">
-    <a href="/collections/men" class="btn btn-primary">Shop Men</a>
-  </div>
-</div>
-
-
-
-
-</div>
-<hr class="double">
 <div class="container">
 
-<div class="row body-text">
-  <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-    {{ page.content }}
+
+  <div class="row">
+    {% for product in collections['frontpage'].products %}
+      {% include 'product-card' %}
+    {% endfor %}
   </div>
+
+
+  <div class="row body-text section">
+    <div class="col-sm-4 col-sm-offset-2 col-md-3 col-md-offset-3">
+      <a href="/collections/women" class="btn btn-primary">Shop Women</a>
+    </div>
+    <div class="col-sm-4 col-md-3">
+      <a href="/collections/men" class="btn btn-primary">Shop Men</a>
+    </div>
+  </div>
+
+</div>
+<hr>
+<div class="container">
+
+  <div class="row body-text">
+    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+      {{ page.content }}
+    </div>
+  </div>
+
 </div>

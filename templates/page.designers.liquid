@@ -1,41 +1,50 @@
 
-<h1>Designers</h1>
+{% assign highlight_title = 'Designers' %}
+{% include 'highlight-title' %}
 
-<div class="row">
+<div class="container">
 
-{% for vendor in shop.vendors %}
-<div class="card designer-card col-sm-6 col-sm-4">
-  {% for designer in blogs.designers.articles %}
-    {% if designer.title == vendor %}
-      <!-- {{ designer.content }} -->
-    {% endif %}
+  <div class="row">
+
+  {% for vendor in shop.vendors %}
+  <div class="card designer-card col-sm-6 col-sm-4">
+    {% assign w = false %}
+    {% assign m = false %}
+    <!-- {% assign types = '' %} -->
+    {% for product in collections.all.products %}
+      {% if product.vendor == vendor %}
+        <!-- {% assign types = types | append: ' ' | append: product.type %} -->
+        {% if product.tags contains 'Women' %}
+          {% assign w = true %}
+        {% endif %}
+        {% if product.tags contains 'Men' %}
+          {% assign m = true %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    <!-- {% assign types = types | split: ' ' | uniq | sort | join: ', ' %} -->
+
+    <h2 class="title-uc product-vendor">{{ vendor }}</h2>
+    {% assign vendor_handle = vendor | handle %}
+    {{ collections[vendor_handle].description }}
+    <!-- <p>{{ types }}</p> -->
+
+    <p style="margin-top:.8em;">
+      {% if w %}
+        <a href="/collections/{{ vendor | handle }}/Women">Women</a>
+      {% endif %}
+      {% if w and m %}
+        /
+      {% endif %}
+      {% if m %}
+        <a href="/collections/{{ vendor | handle }}/Men">Men</a>
+      {% endif %}
+    </p>
+
+  </div>
   {% endfor %}
 
-  {% assign w = false %}
-  {% assign m = false %}
-  {% assign types = '' %}
-  {% for product in collections.all.products %}
-    {% if product.vendor == vendor %}
-      {% assign types = types | append: ' ' | append: product.type %}
-      {% if product.tags contains 'Women' %}
-        {% assign w = true %}
-      {% endif %}
-      {% if product.tags contains 'Men' %}
-        {% assign m = true %}
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-
-  {% assign types = types | split: ' ' | uniq | sort | join: ', ' %}
-
-  <h4 class="product-vendor">{{ vendor }}</h4>
-  <h5 class="product-title">
-    {% if w %}Women{% endif %}
-    {% if w and m %} and {% endif %}
-    {% if m %}Men{% endif %}
-    {{ types }}
-  </h5>
-</div>
-{% endfor %}
+  </div>
 
 </div>
