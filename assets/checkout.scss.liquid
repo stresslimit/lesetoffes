@@ -1,0 +1,86 @@
+
+body {
+  background: #fff;
+  font-size: 16px;
+  font-family: Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  line-height: 1.4;
+  color: #333;
+}
+.order-summary, .order-summary strong, strong, label {
+  color: #333;
+}
+
+
+/*
+  logo */
+.shop__name {
+  width: 256px;
+  height: 45px;
+  background: url({{ 'logo.svg' | asset_url }}) 0 0 no-repeat;
+  background-size: 100% 100%;
+  text-indent: -9999em;
+}
+
+
+/*
+  headers */
+.section__header h3, .section__form h5, .order-summary__section--header h3 {
+  font-weight: bold;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+}
+
+a, a:link, a:hover, a:visited, .footer:hover a:hover {
+  color: #1439A9;
+}
+/*
+  buttons */
+#checkout .btn {
+  border: 1px #1439A9 solid;
+  background: #1439A9;
+  color: #fff;
+  border-radius: 0;
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  text-shadow: none;
+  width: 100%;
+}
+#checkout .btn:hover {
+  background: #fff;
+  color: #1439A9;
+}
+.call-to-action input {
+  margin-top: 1em;
+}
+
+
+.fieldset, .field, .order-summary {
+  border-color: #1439A9;
+  border-radius: 0 !important;
+}
+.order-summary__section--header {
+  padding-bottom: 0;
+}
+.order-summary {
+  background: #ebebeb;
+}
+.summary-body {
+  border-top: 0;
+}
+.order-summary .product-list .product {
+  border-top: 0;
+  border-bottom: 1px dashed grey;
+}
+.product__image {
+  border-radius: 0;
+}
+.order-summary__section {
+  border: 0;
+}
+
+.payment-due__price {
+  color: #333;
+}
