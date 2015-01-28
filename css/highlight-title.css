@@ -1,0 +1,40 @@
+
+.highlight-block {
+  margin-bottom: 2em;
+}
+.highlight-spacer, .highlight-spacer-after {
+  display: none;
+}
+@media (min-width:768px) {
+  .highlight-block {
+    display: flex;
+  }
+  .highlight-spacer, .highlight-spacer-after {
+    display: block;
+    flex-grow: 1;
+  }
+}
+.highlight-block .container {
+  padding: 0;
+}
+.highlight-spacer, .highlight-title {
+  height: 40px;
+  line-height: 40px;
+  background: var(--highlight-colour);
+}
+.template-index .highlight-spacer, .template-index .highlight-title {
+  background: var(--black);
+}
+.template-index .highlight-title h1 {
+  color: #fff;
+}
+.highlight-title, .highlight-title h1 {
+  line-height: 40px;
+  margin: 0;
+  display: inline-block;
+}
+.highlight-title h1 {
+  font-weight: normal;
+  padding-left: 15px;
+  padding-right: 1em;
+}

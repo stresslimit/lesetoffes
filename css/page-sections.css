@@ -1,15 +1,20 @@
 
+/*
+  general */
 .section {
   margin-top: 2em;
   margin-bottom: 2em;
 }
-
 .main-content {
   margin-top: 2em;
 }
 .main-content > h1 {
   margin-top: 0;
 }
+
+
+/*
+  home */
 .banner {
   margin-top: 0.5em;
   padding: 220px 0 120px;
@@ -27,42 +32,11 @@
 }
 
 
-.highlight-block {
-  margin-bottom: 2em;
+/*
+  product */
+.product-vendor, .product-title {
+  margin:0;
 }
-.highlight-spacer, .highlight-spacer-after {
-  display: none;
-}
-@media (min-width:768px) {
-  .highlight-block {
-    display: flex;
-  }
-  .highlight-spacer, .highlight-spacer-after {
-    display: block;
-    flex-grow: 1;
-  }
-}
-.highlight-block .container {
-  padding: 0;
-}
-.highlight-spacer, .highlight-title {
-  height: 40px;
-  line-height: 40px;
-  background: var(--highlight-colour);
-}
-.template-index .highlight-spacer, .template-index .highlight-title {
-  background: var(--black);
-}
-.template-index .highlight-title h1 {
-  color: #fff;
-}
-.highlight-title, .highlight-title h1 {
-  line-height: 40px;
-  margin: 0;
-  display: inline-block;
-}
-.highlight-title h1 {
-  font-weight: normal;
-  padding-left: 15px;
-  padding-right: 1em;
+.product-vendor a {
+  color: var(--black);
 }

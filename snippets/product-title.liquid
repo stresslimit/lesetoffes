@@ -1,5 +1,17 @@
 
-<h1 class="title-sm title-uc product-vendor">{{ product.vendor }}</h1>
+<h1 class="title-sm title-uc product-vendor">
+  {% if template == 'product' %}
+    {% if product.tags contains 'Women' %}
+      {% assign gender_tag = 'Women' %}
+    {% elsif product.tags contains 'Men' %}
+      {% assign gender_tag = 'Men' %}
+    {% endif %}
+    <a href="/collections/{{ product.vendor | handle }}/{{ gender_tag }}">{{ product.vendor }}</a>
+  {% else %}
+    {{ product.vendor }}
+  {% endif %}
+</h1>
+
 <p class="title-sm product-title">{{ product.title }}</p>
 <p class="price">
   – {% unless product.variants.size == 1 %}from {% endunless %}

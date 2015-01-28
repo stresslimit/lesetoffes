@@ -3905,7 +3905,7 @@ social footer */
 
 #logo {
   display: block;
-  margin: 1em 0 0.5em 0;
+  margin: 1.5em 0 0.5em 0;
 }
 
 #logo img {
@@ -3915,6 +3915,9 @@ social footer */
 .footer {
   border-bottom: 9px solid #1439A9;
 }
+
+/*
+  general */
 
 .section {
   margin-top: 2em;
@@ -3928,6 +3931,9 @@ social footer */
 .main-content > h1 {
   margin-top: 0;
 }
+
+/*
+  home */
 
 .banner {
   margin-top: 0.5em;
@@ -3945,6 +3951,18 @@ social footer */
 
 .ribbon-text h1 {
   margin: 0;
+}
+
+/*
+  product */
+
+.product-vendor,
+.product-title {
+  margin: 0;
+}
+
+.product-vendor a {
+  color: #333;
 }
 
 .highlight-block {
@@ -4009,11 +4027,6 @@ social footer */
 
 .card {
   margin-bottom: 1em;
-}
-
-.product-vendor,
-.product-title {
-  margin: 0;
 }
 
 .product-card a {
