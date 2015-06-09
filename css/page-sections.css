@@ -17,15 +17,21 @@
   home */
 .banner {
   margin-top: 0.5em;
-  padding: 220px 0 120px;
+  padding: 2em 1em;
   color: #000;
   background-position: 50% 50%;
   background-size: cover;
 }
 .ribbon-text {
-  background: var(--gold);
+  background: rgba(255, 255, 255, 0.9);
   text-align: center;
+  margin: auto;
   padding: 1em;
+  max-width: 30em;
+  height: 28em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .ribbon-text h1 {
   margin: 0;

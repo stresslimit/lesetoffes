@@ -1,15 +1,15 @@
 
 <div class="banner" style="background-image:url({{ 'homepage_banner_img.jpg' | asset_url }})">
 
-  <div class="ribbon-text"
+  <div class="ribbon-text"{% comment %}
     {% if settings.homepage_banner_ribbon_colour %}
       style="background: {{ settings.homepage_banner_ribbon_colour }};"
-    {% endif %}>
+    {% endif %}{% endcomment %}>
 
-    <h1 class="title-md"
+    <h1 class="title-md title-uc"{% comment %}
       {% if settings.homepage_banner_ribbon_colour %}
         style="color: {{ settings.homepage_banner_ribbon_text_colour }};"
-      {% endif %}>
+      {% endif %}{% endcomment %}>
       {{ settings.homepage_banner_text }}
     </h1>
 

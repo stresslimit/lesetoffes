@@ -31,5 +31,5 @@
 
 
 .footer {
-  border-bottom: 9px solid var(--primary-colour);
+  border-bottom: 9px solid var(--highlight-colour);
 }

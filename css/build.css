@@ -1,3 +1,5 @@
+@import url("http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700");
+
 /*!
  * Bootstrap v3.3.2 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -3793,7 +3795,7 @@ input[type=number] {
 }
 
 .btn {
-  border: 1px #1439A9 solid;
+  border: 1px #333 solid;
   border-radius: 0;
   display: block;
   font-size: 1em;
@@ -3805,16 +3807,19 @@ input[type=number] {
 }
 
 .btn-primary,
+.btn-primary:focus,
 .btn-secondary:hover,
 .btn-secondary.active {
-  background: #1439A9;
+  background: #333;
   color: #fff;
 }
 
 .btn-primary:hover,
+.btn-primary:active,
 .btn-secondary {
   background: #fff;
-  color: #1439A9;
+  color: #333;
+  border-color: #333;
 }
 
 .btn-inline {
@@ -3835,9 +3840,10 @@ nav a {
   display: inline-block;
   margin-right: 2em;
   line-height: 2em;
+  font-weight: normal;
 }
 
-.active {
+nav .active {
   font-weight: bold;
 }
 
@@ -3913,7 +3919,7 @@ social footer */
 }
 
 .footer {
-  border-bottom: 9px solid #1439A9;
+  border-bottom: 9px solid #aa934d;
 }
 
 /*
@@ -3937,16 +3943,31 @@ social footer */
 
 .banner {
   margin-top: 0.5em;
-  padding: 220px 0 120px;
+  padding: 2em 1em;
   color: #000;
   background-position: 50% 50%;
   background-size: cover;
 }
 
 .ribbon-text {
-  background: #aa934d;
+  background: rgba(255, 255, 255, 0.9);
   text-align: center;
+  margin: auto;
   padding: 1em;
+  max-width: 30em;
+  height: 28em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .ribbon-text h1 {
@@ -4000,7 +4021,7 @@ social footer */
 .highlight-title {
   height: 40px;
   line-height: 40px;
-  background: #f9ec19;
+  background: #aa934d;
 }
 
 .template-index .highlight-spacer,
@@ -4014,6 +4035,7 @@ social footer */
 
 .highlight-title,
 .highlight-title h1 {
+  color: #fff;
   line-height: 40px;
   margin: 0;
   display: inline-block;
@@ -4068,7 +4090,7 @@ React cart component
   overflow-y: auto;
   background: #ebebeb;
   padding: 1em;
-  border: 1px solid #1439A9;
+  border: 1px solid #333;
 }
 
 @media (min-width:992px) {

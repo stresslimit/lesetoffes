@@ -10,12 +10,16 @@
 /*
   colours */
 :root {
-  --primary-colour: #1439A9;
-  --highlight-colour: #f9ec19;
   --grey: #a1a1a1;
   --black: #333;
+  --blue: #1439A9;
+  --yellow: #f9ec19;
   --gold: #aa934d;
-  --tope: #99594a;
+  --taupe: #b97564;
+
+  --primary-colour: var(--black);
+  --secondary-colour: var(--blue);
+  --highlight-colour: var(--gold);
 }
 
 
@@ -48,7 +52,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-size: 1em; }
 }
 
 a, a:hover {
-  color: var(--primary-colour);
+  color: var(--secondary-colour);
 }
 
 .body-text a {

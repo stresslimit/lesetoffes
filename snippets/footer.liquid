@@ -5,7 +5,7 @@
 
   <div class="row">
     <div class="col-sm-8">
-      <nav>
+      <nav class="title-uc">
         {% for link in linklists.footer.links %}
           <a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
         {% endfor %}

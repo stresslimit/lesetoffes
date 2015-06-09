@@ -10,13 +10,14 @@
   text-shadow: none;
   width: 100%;
 }
-.btn-primary, .btn-secondary:hover, .btn-secondary.active {
+.btn-primary, .btn-primary:focus, .btn-secondary:hover, .btn-secondary.active {
   background: var(--primary-colour);
   color: #fff;
 }
-.btn-primary:hover, .btn-secondary {
+.btn-primary:hover, .btn-primary:active, .btn-secondary {
   background: #fff;
   color: var(--primary-colour);
+  border-color: var(--primary-colour);
 }
 .btn-inline {
   display: inline-block;

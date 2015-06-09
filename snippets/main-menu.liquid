@@ -1,14 +1,14 @@
 
 <div class="row">
   <div class="col-sm-8">
-    <nav class="main-menu">
+    <nav class="main-menu title-uc">
       {% for link in linklists.main-menu.links %}
         <a href="{{ link.url }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
       {% endfor %}
     </nav>
   </div>
   <div class="col-sm-4 text-right">
-    <nav>
+    <nav class="title-uc">
       <a href="/cart" class="show-cart your-bag">Your Bag (<span id="cart-qty">{{ cart.item_count }}</span>) <img src="{{ 'bag.svg' | asset_url }}" id="bag-svg"></a>
     </nav>
   </div>
